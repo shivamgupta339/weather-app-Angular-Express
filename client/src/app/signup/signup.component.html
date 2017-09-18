@@ -1,0 +1,14 @@
+<div class="col-md-12">
+	<div id="logbox">
+		<div id="signup">
+			<h1>create an account</h1>
+			<input type="text" name="username" placeholder="What's your username?" autofocus="autofocus" required="required" class="input pass" [(ngModel)]="userDetails.username">
+			<input type="email" placeholder="What's your email" autofocus="autofocus" required="required" class="input pass" [(ngModel)]="userDetails.email" required="required">
+			<input type="tel" placeholder="What's your mobile no?" autofocus="autofocus" required="required" class="input pass" maxlength="10" minlength="10" [(ngModel)]="userDetails.mobileNo">
+			<input type="password" placeholder="Choose a password" required="required" class="input pass" maxlength="16" [(ngModel)]="userDetails.password">
+			<button class="inputButton" (click)=signup()>Sign me up!</button>
+			<a routerLink='/login'><p class="text-center" >Already user?Login here</p></a>
+		</div>
+		<div *ngIf='this.ref' routerLink = "/login"></div>
+	</div>
+</div>

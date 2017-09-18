@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="container">
+	<ul class="nav navbar-nav navbar-right float-right">
+  	<li>
+    	<div class="search">
+				<input type="text" class="form-control input-sm" maxlength="64" placeholder="Search City" [(ngModel)]="cityName" >
+				<button type="submit" class="btn btn-primary btn-sm" (click)=getCityName(cityName) >Search City</button>
+			</div>
+    </li>
+  </ul>
+</div>

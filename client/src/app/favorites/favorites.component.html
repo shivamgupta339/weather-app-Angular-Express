@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="container float-center">
+	<app-update-favorites *ngIf = 'updateSniplet' [favoriteList] = 'updateSniplet'>
+	</app-update-favorites>
+	<h3 class="h3-margin display-4" *ngIf="weatherArray"> Favorite Days</h3>
+	<div class="row"  responsive-sm wrap *ngIf='weatherArray'>
+	  <div class="col-sm-3" *ngFor = 'let favoriteList of weatherArray | paginate: { itemsPerPage: 4, currentPage: pageNo }'>
+	    <div class="card">
+	      <div class="card-body">
+	        <h4 class="card-title">
+	        	{{favoriteList.city}}
+	        	<button type="button" class="btn btn-danger btn-circle float-right" (click)=delete(favoriteList)>
+	        		<i class="fa fa-times" aria-hidden="true"></i>
+	        	</button>
+	        </h4><hr>
+	        <div class="card-text">
+	        	<h5>Date : {{favoriteList.date}}</h5>
+						<h5>Temp : {{favoriteList.temp}}°C <img src="{{favoriteList.img}}"></h5>
+						<h5>Humidity : {{favoriteList.humidity}}</h5>
+						<h5>Feels Like : {{favoriteList.real_feel}}°C</h5>
+						<h5>{{favoriteList.cloud}}</h5>	
+	        </div>
+	        <button class="btn btn-primary float-right" (click)=update(favoriteList)>Update</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<pagination-controls (pageChange)="pageNo = $event"></pagination-controls>
+</div>
+<app-footer></app-footer>

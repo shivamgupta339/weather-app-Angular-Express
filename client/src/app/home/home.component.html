@@ -1,0 +1,10 @@
+<div class="div-margin">
+	<div class="row">
+		<div class="col-lg-12 ">
+			<search (childWeather) = "weatherData($event)"></search>
+			<app-search-list [inputData] = "weather"></app-search-list>
+			<app-search-detail [inputData] = "weather"></app-search-detail>
+		</div>		
+	</div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,23 @@
+<div class="container" *ngIf="inputData.location">
+	<h3 class="h3-margin display-4" *ngIf="inputData.location">Forecast for next 10 Days</h3>
+	<div class="row"  responsive-sm wrap *ngIf='inputData.location'>
+	  <div class="col-sm-4 div-margin" *ngFor = 'let weather of inputData.forecast.forecastday | paginate: { itemsPerPage: 3, currentPage: pageNo }'>
+	    <div class="card">
+	      <div class="card-body">
+	        <h4 class="card-title">
+	        	 {{weather.date}}
+	        </h4><hr>
+	        <div class="card-text div-margin">
+						<h5>
+							Temp : {{weather.day.maxtemp_c}}°C
+								<img src="{{weather.day.condition.icon}}">
+						</h5>
+						<h5>{{weather.day.condition.text}}</h5>	
+	        </div>
+	        <button class="btn btn-primary float-right" (click)=getDetail(weather,inputData.location.name)>Add to favorite</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<pagination-controls (pageChange)="pageNo = $event" ></pagination-controls>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="col-md-12">
+		<div id="logbox">
+			<div id="signup">
+				<h1>account login</h1>
+				<form action="">
+					<input type="text" name="email" placeholder="enter your email" class="input pass" [(ngModel)]="loginDetails.email" required="required">
+					<input type="password" name="password" placeholder="enter your password" required="required" class="input pass" [(ngModel)]="loginDetails.password" >
+					<button class="inputButton" (click)= validate()>Sign me in!</button>
+					<a routerLink='/signup'>New user? signup here</a>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div *ngIf='this.ref' routerLink = "/search"></div>
+</div>
